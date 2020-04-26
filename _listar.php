@@ -47,7 +47,6 @@ $nivel_usuario = $array['nivel_usuario'];
 		      <th scope="col">Nome</th>
 		      <th scope="col">Siape</th>
 		      <th scope="col">OM</th>
-		      <th scope="col">Cargo</th>
 		      <th scope="col">Ação</th>
 
 		    </tr>
@@ -151,8 +150,6 @@ $nivel_usuario = $array['nivel_usuario'];
 		 		<td><?php echo $siape ?></td>
 
 		 		<td><?php echo $om ?></td>
-
-		 		<td><?php echo $cargo ?></td>
 
 		 		<td>
 
