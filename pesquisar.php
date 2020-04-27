@@ -29,7 +29,8 @@ $siape= $_GET['siape'];
  	</style>
 
  <body> 
-  <?php
+
+<?php
 
 session_start();
 
@@ -60,50 +61,94 @@ echo $nivel_usuario = $array['nivel_usuario'];
   <div class="row">
     <div class="col-sm">
 	  <form action="atualizar.php" method="post" style="margin-top: 20px;">
+    <?php
 
-		<?php
+    $sql = "SELECT *, TIMESTAMPDIFF (YEAR, `datanascimento`, CURDATE()) AS idade FROM `dados` WHERE siape = $siape";
+    
+        $buscar = mysqli_query($conexao, $sql);
+        while ($array = mysqli_fetch_array($buscar)) {
 
-		$sql = "SELECT * FROM `dados` WHERE siape = $siape";
-		$buscar = mysqli_query($conexao, $sql);
-		while ($array = mysqli_fetch_array($buscar)) {
+          $id = $array ['id'];
+          $nome = $array ['nome']; 
+          $siape = $array ['siape'];
+          $sexo = $array ['sexo'];
+          $datanascimento = $array ['datanascimento'];
+          $idade = $array ['idade'];
+          $cpf = $array ['cpf'];
+          $rg = $array ['rg'];
+          $estadocivil = $array ['estadocivil'];
+          $pne = $array ['pne'];
+          $endereco = $array ['endereco'];
+          $email = $array ['email'];
+          $situacaofuncional = $array ['situacaofuncional'];
+          $om = $array ['om'];
+          $carreira = $array ['carreira'];
+          $cargo = $array ['cargo'];
+          $classe = $array ['classe'];
+          $padrao = $array ['padrao'];
+          $nivel = $array ['nivel'];
+          $jornada = $array ['jornada'];
+          $codigovaga = $array ['codigovaga'];
+          $pispasep = $array ['pispasep'];
+          $dataposse = $array ['dataposse'];
+          $dataexercicio = $array ['dataexercicio'];
+          //$tempodcta = $array ['tempodcta'];
+          $tempoexterno = $array ['tempoexterno'];
+          $tempoafastado = $array ['tempoafastado'];
+          $prevaposentadoria = $array ['prevaposentadoria'];
+          $progressao = $array ['progressao'];
+          $titulacao = $array ['titulacao'];
+          $portariatitulacao = $array ['portariatitulacao'];
+          $datatitulacao = $array ['datatitulacao'];
+            
 
-				$id = $array ['id'];
-	    	$nome = $array ['nome']; 
-				$siape = $array ['siape'];
-				$sexo = $array ['sexo'];
-				$datanascimento = $array ['datanascimento'];
-				//$idade = $array ['idade'];
-				$cpf = $array ['cpf'];
-				$rg = $array ['rg'];
-				$estadocivil = $array ['estadocivil'];
-				$pne = $array ['pne'];
-				$endereco = $array ['endereco'];
-				$email = $array ['email'];
-				$situacaofuncional = $array ['situacaofuncional'];
-				$om = $array ['om'];
-				$carreira = $array ['carreira'];
-				$cargo = $array ['cargo'];
-				$classe = $array ['classe'];
-				$padrao = $array ['padrao'];
-				$nivel = $array ['nivel'];
-				$jornada = $array ['jornada'];
-				$codigovaga = $array ['codigovaga'];
-				$pispasep = $array ['pispasep'];
-				$dataposse = $array ['dataposse'];
-				$dataexercicio = $array ['dataexercicio'];
-				//$tempodcta = $array ['tempodcta'];
-				$tempoexterno = $array ['tempoexterno'];
-				$tempoafastado = $array ['tempoafastado'];
-				$prevaposentadoria = $array ['prevaposentadoria'];
-				$progressao = $array ['progressao'];
-				$titulacao = $array ['titulacao'];
-				$portariatitulacao = $array ['portariatitulacao'];
-				$datatitulacao = $array ['datatitulacao'];	
+        ?>
 
 
-		?>
+    <?php {
 
-	 <div style="text-align: center" style="margin-top: 40px";>
+    $nsql = "SELECT *, DATEDIFF(CURDATE(), `dataexercicio`) - `tempoafastado` AS tempodcta FROM `dados` WHERE siape = $siape";
+
+    $b = mysqli_query($conexao, $nsql);
+
+      while ($array = mysqli_fetch_array($b)) {
+
+        $id = $array ['id'];
+        $nome = $array ['nome']; 
+        $siape = $array ['siape'];
+        $sexo = $array ['sexo'];
+        $datanascimento = $array ['datanascimento'];
+        //$idade = $array ['idade'];
+        $cpf = $array ['cpf'];
+        $rg = $array ['rg'];
+        $estadocivil = $array ['estadocivil'];
+        $pne = $array ['pne'];
+        $endereco = $array ['endereco'];
+        $email = $array ['email'];
+        $situacaofuncional = $array ['situacaofuncional'];
+        $om = $array ['om'];
+        $carreira = $array ['carreira'];
+        $cargo = $array ['cargo'];
+        $classe = $array ['classe'];
+        $padrao = $array ['padrao'];
+        $nivel = $array ['nivel'];
+        $jornada = $array ['jornada'];
+        $codigovaga = $array ['codigovaga'];
+        $pispasep = $array ['pispasep'];
+        $dataposse = $array ['dataposse'];
+        $dataexercicio = $array ['dataexercicio'];
+        $tempodcta = $array ['tempodcta'];
+        $tempoexterno = $array ['tempoexterno'];
+        $tempoafastado = $array ['tempoafastado'];
+        $prevaposentadoria = $array ['prevaposentadoria'];
+        $progressao = $array ['progressao'];
+        $titulacao = $array ['titulacao'];
+        $portariatitulacao = $array ['portariatitulacao'];
+        $datatitulacao = $array ['datatitulacao'];
+        ?>
+
+
+    <div style="text-align: center" style="margin-top: 40px";>
     <h4>Dados Pessoais</h4>
     </div>
 
@@ -128,7 +173,7 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <br>
 
       <label> Idade </label>
-      <input type="number" class="form-control" name="idade" value="<?php echo $idade ?>">
+      <input disabled="disabled" type="number" class="form-control" name="idade" value="<?php echo $idade ?>">
       <br>
 
       <label> CPF </label>
@@ -141,9 +186,11 @@ echo $nivel_usuario = $array['nivel_usuario'];
 
       <label for="exampleFormControlSelect1">Estado Civil</label>
       <select class="form-control" id="exampleFormControlSelect1" name="estadocivil" value="<?php echo $estadocivil ?>">
-      <option <?php echo $estadocivil=='Solteiro(a)' ? 'selected="selected"' : ''?>>Solteiro(a)</option>
-      <option <?php echo $estadocivil=='Casado(a)' ? 'selected="selected"' : ''?>>Casado(a)</option>
-      <option <?php echo $estadocivil=='Divorciado(a)/Separado(a)' ? 'selected="selected"' : ''?>>Divorciado(a)/Sepadarado(a)</option>
+      <option <?php echo $estadocivil=='solteiro(a)' ? 'selected="selected"' : ''?>>solteiro(a)</option>
+      <option <?php echo $estadocivil=='casado(a)' ? 'selected="selected"' : ''?>>casado(a)</option>
+      <option <?php echo $estadocivil=='divorciado(a)' ? 'selected="selected"' : ''?>>divorciado(a)</option>
+      <option <?php echo $estadocivil=='separado(a)' ? 'selected="selected"' : ''?>>separado(a)</option>
+      <option <?php echo $estadocivil=='viúvo(a)' ? 'selected="selected"' : ''?>>viúvo(a)</option>
       <option <?php echo $estadocivil=='Outro' ? 'selected="selected"' : ''?>>Outro</option>
       </select>
       <br>
@@ -173,7 +220,14 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <label for="exampleFormControlSelect1">Situação Funcional</label>
       <select class="form-control" id="exampleFormControlSelect1" name="situacaofuncional" value="<?php echo $situacaofuncional ?>">
       <option <?php echo $situacaofuncional=='Ativo' ? 'selected="selected"' : ''?>>Ativo</option>
-      <option <?php echo $situacaofuncional=='Aposentado' ? 'selected="selected"' : ''?>>Aposentado</option>
+      <option <?php echo $situacaofuncional=='Cedido' ? 'selected="selected"' : ''?>>Cedido</option>
+      <option <?php echo $situacaofuncional=='Contrato de Trabalho Temporário' ? 'selected="selected"' : ''?>>Contrato de Trabalho Temporário</option>
+      <option <?php echo $situacaofuncional=='AGU' ? 'selected="selected"' : ''?>>AGU</option>
+      <option <?php echo $situacaofuncional=='ICEA' ? 'selected="selected"' : ''?>>ICEA</option>
+      <option <?php echo $situacaofuncional=='Em exercício no DCTA' ? 'selected="selected"' : ''?>>Em exercício no DCTA</option>
+      <option <?php echo $situacaofuncional=='Exercício Provisório' ? 'selected="selected"' : ''?>>Exercício Provisório</option>
+      <option <?php echo $situacaofuncional=='Licença sem vencimentos' ? 'selected="selected"' : ''?>>Licença sem vencimentos</option>
+      <option <?php echo $situacaofuncional=='DAS' ? 'selected="selected"' : ''?>>DAS</option>
     </select>
     <br>
 
@@ -190,14 +244,26 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <option <?php echo $om=='COPAC' ? 'selected="selected"' : ''?>>COPAC</option>
       <option <?php echo $om=='CLBI' ? 'selected="selected"' : ''?>>CLBI</option>
       <option <?php echo $om=='CLA' ? 'selected="selected"' : ''?>>CLA</option>
+      <option <?php echo $om=='AGU' ? 'selected="selected"' : ''?>>AGU</option>
+      <option <?php echo $om=='ICEA' ? 'selected="selected"' : ''?>>ICEA</option>
       </select>
       <br>
 
       <label for="exampleFormControlSelect1">Carreira</label>
       <select class="form-control" id="exampleFormControlSelect1" name="carreira" value="<?php echo $carreira ?>">
-      <option <?php echo $carreira=='Ciência e Tecnologia' ? 'selected="selected"' : ''?>>Ciência e Tecnologia</option>
-      <option <?php echo $carreira=='Carreira Geral de Pessoal' ? 'selected="selected"' : ''?>>Carreira Geral de Pessoal</option>
-      <option <?php echo $carreira=='Professor' ? 'selected="selected"' : ''?>>Professor</option>
+      <option <?php echo $carreira=='C&T' ? 'selected="selected"' : ''?>>C&T</option>
+      <option <?php echo $carreira=='CDT' ? 'selected="selected"' : ''?>>CDT</option>
+      <option <?php echo $carreira=='CLT' ? 'selected="selected"' : ''?>>CLT</option>
+      <option <?php echo $carreira=='DACTA' ? 'selected="selected"' : ''?>>DACTA</option>
+      <option <?php echo $carreira=='DAS' ? 'selected="selected"' : ''?>>DAS</option>
+      <option <?php echo $carreira=='JUR' ? 'selected="selected"' : ''?>>JUR</option>
+      <option <?php echo $carreira=='MAG' ? 'selected="selected"' : ''?>>MAG</option>
+      <option <?php echo $carreira=='MAG EBTT' ? 'selected="selected"' : ''?>>MAG EBTT</option>
+      <option <?php echo $carreira=='MAG SUP' ? 'selected="selected"' : ''?>>MAG SUP</option>
+      <option <?php echo $carreira=='MPOG' ? 'selected="selected"' : ''?>>MPOG</option>
+      <option <?php echo $carreira=='PCCTAE' ? 'selected="selected"' : ''?>>PCCTAE</option>
+      <option <?php echo $carreira=='PGPE' ? 'selected="selected"' : ''?>>PGPE</option>
+
       </select>
       <br>
 
@@ -210,6 +276,14 @@ echo $nivel_usuario = $array['nivel_usuario'];
         <option <?php echo $cargo=='Analista em C&T' ? 'selected="selected"' : ''?>>Analista em C&T</option>
         <option <?php echo $cargo=='Assistente em C&T' ? 'selected="selected"' : ''?>>Assistente em C&T</option>
         <option <?php echo $cargo=='Outro' ? 'selected="selected"' : ''?>>Outro</option>
+        <option <?php echo $cargo=='Agente de Portaria' ? 'selected="selected"' : ''?>>Agente de Portaria</option>
+        <option <?php echo $cargo=='Prof Mag Sup' ? 'selected="selected"' : ''?>>Prof Mag Sup</option>
+        <option <?php echo $cargo=='Prof EBTT' ? 'selected="selected"' : ''?>>Prof EBTT</option>
+        <option <?php echo $cargo=='Engenheiro' ? 'selected="selected"' : ''?>>Engenheiro</option>
+        <option <?php echo $cargo=='Agente Adm' ? 'selected="selected"' : ''?>>Agente Adm</option>
+        <option <?php echo $cargo=='Assistente Técnico' ? 'selected="selected"' : ''?>>Assistente Técnico</option>
+        <option <?php echo $cargo=='Administrador' ? 'selected="selected"' : 'Administrador'?>></option>
+
         </select>
       <br>
 
@@ -223,9 +297,9 @@ echo $nivel_usuario = $array['nivel_usuario'];
 
       <label for="exampleFormControlSelect1">Nível</label>
        <select class="form-control" id="exampleFormControlSelect1" name="nivel" value="<?php echo $nivel ?>">
-        <option <?php echo $nivel=='Nível Auxiliar' ? 'selected="selected"' : ''?>>Nível Auxiliar</option>
-        <option <?php echo $nivel=='Nível Médio' ? 'selected="selected"' : ''?>>Nível Médio</option>
-        <option <?php echo $nivel=='Nível Superior' ? 'selected="selected"' : ''?>>Nível Superior</option>
+        <option <?php echo $nivel=='NA' ? 'selected="selected"' : ''?>>NA</option>
+        <option <?php echo $nivel=='NI' ? 'selected="selected"' : ''?>>NI</option>
+        <option <?php echo $nivel=='NS' ? 'selected="selected"' : ''?>>NS</option>
        </select>
       <br>
 
@@ -234,6 +308,7 @@ echo $nivel_usuario = $array['nivel_usuario'];
         <option <?php echo $jornada=='40 horas' ? 'selected="selected"' : ''?>>40 horas</option>
         <option <?php echo $jornada=='30 horas' ? 'selected="selected"' : ''?>>30 horas</option>
         <option <?php echo $jornada=='20 horas' ? 'selected="selected"' : ''?>>20 horas</option>
+        <option <?php echo $jornada=='Dedicação Exclusiva' ? 'selected="selected"' : ''?>>Dedicação Exclusiva</option>
       </select>
       <br>
 
@@ -259,8 +334,8 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <input type="date" class="form-control" name="dataexercicio" value="<?php echo $dataexercicio ?>">
       <br>
 
-      <label> Tempo de Serviço no DCTA </label>
-      <input type="number" class="form-control" name="tempodcta" value="<?php echo $tempodcta ?>">
+      <label> Tempo de Serviço no DCTA em dias </label>
+      <input disabled="disabled" type="number" class="form-control" name="tempodcta" value="<?php echo $tempodcta ?>">
       <br>
 
       <label> Tempo de Serviço/Contribuição Averbado </label>
@@ -287,6 +362,7 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <option <?php echo $titulacao=='Especialização' ? 'selected="selected"' : ''?>>Especialização</option>
       <option <?php echo $titulacao=='Mestrado' ? 'selected="selected"' : ''?>>Mestrado</option>
       <option <?php echo $titulacao=='Doutorado' ? 'selected="selected"' : ''?>>Doutorado</option>
+      <option <?php echo $titulacao==' ' ? 'selected="selected"' : ''?>> </option>
       </select>
       <br>
 
@@ -298,7 +374,9 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <input type="date" class="form-control" name="datatitulacao" value="<?php echo $datatitulacao ?>">
     </div>
     </div>
-          <?php
+
+
+      <?php
 
           if (($nivel_usuario == 1) || ($nivel_usuario == 2)) {
           ?>
@@ -313,8 +391,11 @@ echo $nivel_usuario = $array['nivel_usuario'];
          <div style="text-align: right; margin-bottom: 50px">
          <a href="_listar.php" role="button" class="btn btn-primary">Voltar</a>
 
+  <?php } ?>
+    <?php } ?>
+    <?php } ?>
+     
 
-	<?php } ?>
 	</div>
 	</form>
 	
