@@ -2,9 +2,23 @@
 <?php
 
 session_start();
+
+$usuario = $_SESSION['usuario'];
+
 if (!isset($_SESSION['usuario'])) {
   header ('Location: index.php');
 }
+
+
+include 'conexao.php';
+
+$sql = "SELECT nivel_usuario FROM usuarios WHERE mail_usuario ='$usuario' and status = 'Ativo'";
+
+$buscar = mysqli_query($conexao, $sql);
+
+$array = mysqli_fetch_array($buscar);
+
+$nivel_usuario = $array['nivel_usuario'];
 
 ?> 
 
@@ -49,45 +63,44 @@ $id= $_GET['id'];
 
 		$sql = "SELECT *, TIMESTAMPDIFF (YEAR, `datanascimento`, CURDATE()) AS idade FROM `dados` WHERE id = $id";
     
+				$buscar = mysqli_query($conexao, $sql);
+				while ($array = mysqli_fetch_array($buscar)) {
 
-		$buscar = mysqli_query($conexao, $sql);
-		while ($array = mysqli_fetch_array($buscar)) {
+		      		$id = $array ['id'];
+					$nome = $array ['nome']; 
+					$siape = $array ['siape'];
+					$sexo = $array ['sexo'];
+					$datanascimento = $array ['datanascimento'];
+					$idade = $array ['idade'];
+					$cpf = $array ['cpf'];
+					$rg = $array ['rg'];
+					$estadocivil = $array ['estadocivil'];
+					$pne = $array ['pne'];
+					$endereco = $array ['endereco'];
+					$email = $array ['email'];
+					$situacaofuncional = $array ['situacaofuncional'];
+					$om = $array ['om'];
+					$carreira = $array ['carreira'];
+					$cargo = $array ['cargo'];
+					$classe = $array ['classe'];
+					$padrao = $array ['padrao'];
+					$nivel = $array ['nivel'];
+					$jornada = $array ['jornada'];
+					$codigovaga = $array ['codigovaga'];
+					$pispasep = $array ['pispasep'];
+					$dataposse = $array ['dataposse'];
+					$dataexercicio = $array ['dataexercicio'];
+					//$tempodcta = $array ['tempodcta'];
+					$tempoexterno = $array ['tempoexterno'];
+					$tempoafastado = $array ['tempoafastado'];
+					$prevaposentadoria = $array ['prevaposentadoria'];
+					$progressao = $array ['progressao'];
+					$titulacao = $array ['titulacao'];
+					$portariatitulacao = $array ['portariatitulacao'];
+					$datatitulacao = $array ['datatitulacao'];
+						
 
-      $id = $array ['id'];
-			$nome = $array ['nome']; 
-			$siape = $array ['siape'];
-			$sexo = $array ['sexo'];
-			$datanascimento = $array ['datanascimento'];
-			$idade = $array ['idade'];
-			$cpf = $array ['cpf'];
-			$rg = $array ['rg'];
-			$estadocivil = $array ['estadocivil'];
-			$pne = $array ['pne'];
-			$endereco = $array ['endereco'];
-			$email = $array ['email'];
-			$situacaofuncional = $array ['situacaofuncional'];
-			$om = $array ['om'];
-			$carreira = $array ['carreira'];
-			$cargo = $array ['cargo'];
-			$classe = $array ['classe'];
-			$padrao = $array ['padrao'];
-			$nivel = $array ['nivel'];
-			$jornada = $array ['jornada'];
-			$codigovaga = $array ['codigovaga'];
-			$pispasep = $array ['pispasep'];
-			$dataposse = $array ['dataposse'];
-			$dataexercicio = $array ['dataexercicio'];
-			//$tempodcta = $array ['tempodcta'];
-			$tempoexterno = $array ['tempoexterno'];
-			$tempoafastado = $array ['tempoafastado'];
-			$prevaposentadoria = $array ['prevaposentadoria'];
-			$progressao = $array ['progressao'];
-			$titulacao = $array ['titulacao'];
-			$portariatitulacao = $array ['portariatitulacao'];
-			$datatitulacao = $array ['datatitulacao'];
-				
-
-		?>
+				?>
 
 
     <?php {
@@ -360,13 +373,23 @@ $id= $_GET['id'];
     </div>
   	</div>
 
-	<div style="text-align: center; margin-bottom: 100px">
-	<button type="submit" id="botao" class="btn ">Atualizar</button>
-	</div>
+    <?php
 
+          if (($nivel_usuario == 1) || ($nivel_usuario == 2)) {
+          ?>
+
+	       <div style="text-align: center; margin-bottom: 0px">
+	       <button type="submit" id="botao" class="btn ">Atualizar</button>
+	       </div>
+
+         <?php } ?>
+
+
+         <div style="text-align: right; margin-bottom: 50px">
+         <a href="_listar.php" role="button" class="btn btn-primary">Voltar</a>
 		
   <?php } ?>
-   <?php } ?>
+    <?php } ?>
       <?php } ?>
 
     
