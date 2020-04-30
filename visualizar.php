@@ -49,11 +49,8 @@ $id= $_GET['id'];
 
 		$sql = "SELECT *, TIMESTAMPDIFF (YEAR, `datanascimento`, CURDATE()) AS idade FROM `dados` WHERE id = $id";
 
-    $nsql = "SELECT *, DATEDIFF(CURDATE(), `dataexercicio`) - `tempoafastado` AS tempodcta FROM `dados` WHERE id = $id";
+    $buscar = mysqli_query($conexao, $sql);
 
-    $b = mysqli_query($conexao, $nsql);
-
-		$buscar = mysqli_query($conexao, $sql);
 
 		while ($array = mysqli_fetch_array($buscar)) {
 
@@ -70,6 +67,8 @@ $id= $_GET['id'];
 			$endereco = $array ['endereco'];
 			$email = $array ['email'];
 			$situacaofuncional = $array ['situacaofuncional'];
+      $demissdata = $array['demissdata'];
+      $demisspubli = $array['demisspubli'];
 			$om = $array ['om'];
 			$carreira = $array ['carreira'];
 			$cargo = $array ['cargo'];
@@ -96,41 +95,19 @@ $id= $_GET['id'];
      <?php {
 
 
-      while ($array = mysqli_fetch_array($b)) {
+    $nsql = "SELECT *, (DATEDIFF(CURDATE(), `dataexercicio`) - `tempoafastado`)/365 AS tempodcta FROM `dados` WHERE id = $id";
+
+    $buscar1 = mysqli_query($conexao, $nsql);
+
+
+      while ($array = mysqli_fetch_array($buscar1)) {
 
         $id = $array ['id'];
-        $nome = $array ['nome']; 
-        $siape = $array ['siape'];
-        $sexo = $array ['sexo'];
-        $datanascimento = $array ['datanascimento'];
-        //$idade = $array ['idade'];
-        $cpf = $array ['cpf'];
-        $rg = $array ['rg'];
-        $estadocivil = $array ['estadocivil'];
-        $pne = $array ['pne'];
-        $endereco = $array ['endereco'];
-        $email = $array ['email'];
-        $situacaofuncional = $array ['situacaofuncional'];
-        $om = $array ['om'];
-        $carreira = $array ['carreira'];
-        $cargo = $array ['cargo'];
-        $classe = $array ['classe'];
-        $padrao = $array ['padrao'];
-        $nivel = $array ['nivel'];
-        $jornada = $array ['jornada'];
-        $codigovaga = $array ['codigovaga'];
-        $pispasep = $array ['pispasep'];
-        $dataposse = $array ['dataposse'];
         $dataexercicio = $array ['dataexercicio'];
         $tempodcta = $array ['tempodcta'];
-        $tempoexterno = $array ['tempoexterno'];
         $tempoafastado = $array ['tempoafastado'];
-        $prevaposentadoria = $array ['prevaposentadoria'];
-        $progressao = $array ['progressao'];
-        $titulacao = $array ['titulacao'];
-        $portariatitulacao = $array ['portariatitulacao'];
-        $datatitulacao = $array ['datatitulacao'];
         ?>
+
 
     <div style="text-align: center" style="margin-top: 40px";>
     <h4>Dados Pessoais</h4>
@@ -206,6 +183,15 @@ $id= $_GET['id'];
     </select>
     <br>
 
+      <br>
+      <label> Data de Demissão/Saída </label>
+      <input type="date" class="form-control" name="demissdata" value="<?php echo $demissdata ?>">
+      <br>
+
+      <label> Publicação da Demissão/Saída </label>
+      <input type="text" class="form-control" name="demisspubli" value="<?php echo $demisspubli ?>">
+      <br>
+
     <label for="exampleFormControlSelect1">Organização Militar</label>
       <select class="form-control" id="exampleFormControlSelect1" name="om" value="<?php echo $om ?>">
       <option <?php echo $om=='DCTA' ? 'selected="selected"' : ''?>>DCTA</option>
@@ -270,15 +256,18 @@ $id= $_GET['id'];
       <input type="number" class="form-control" name="codigovaga" value="<?php echo $codigovaga ?>">
       <br>
 
-      <label> PIS/PASEP </label>
-      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
-      <br>
 
     </div>
     <div class="col-sm">
       <div style="text-align: left;"; style="margin-top: 40px">
       <h4>...</h4>
       </div>
+      <br>
+
+      <label> PIS/PASEP </label>
+      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
+      <br>
+
       <br>
       <label>Data da Posse</label>
       <input type="date" class="form-control" name="dataposse" value="<?php echo $dataposse ?>">
@@ -288,8 +277,8 @@ $id= $_GET['id'];
       <input type="date" class="form-control" name="dataexercicio" value="<?php echo $dataexercicio ?>">
       <br>
 
-      <label> Tempo de Serviço no DCTA </label>
-      <input disabled="disabled" type="number" class="form-control" name="tempodcta" value="<?php echo $tempodcta ?>">
+      <label> Tempo de Serviço no DCTA em anos </label>
+      <input disabled="disabled" type="number" class="form-control" name="tempodcta" <?php $tempodcta1 = number_format($tempodcta, 0, '.','') ?>  value="<?php echo $tempodcta1 ?>">
       <br>
 
       <label> Tempo de Serviço/Contribuição Averbado </label>
@@ -333,7 +322,7 @@ $id= $_GET['id'];
   <?php } ?>
    <?php } ?>
       <?php } ?>
-
+ 
 	</form>
   </div>
 
