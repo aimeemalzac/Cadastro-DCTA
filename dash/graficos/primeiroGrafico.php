@@ -14,7 +14,7 @@
 
           include 'conexao.php';
 
-          $sql = "SELECT `prevaposentadoria`, COUNT(*) AS total FROM dados WHERE `prevaposentadoria` < 2025 AND `prevaposentadoria` > 0 GROUP BY `prevaposentadoria`";
+          $sql = "SELECT `prevaposentadoria`, COUNT(*) AS total FROM dados WHERE `prevaposentadoria` < 2025 AND `situacaofuncional` =  'Ativo' AND `prevaposentadoria` > 0  AND `prevaposentadoria` > 2019 GROUP BY `prevaposentadoria`";
 
           $buscar = mysqli_query($conexao, $sql);
 
