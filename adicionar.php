@@ -95,6 +95,12 @@ if (!isset($_SESSION['usuario'])) {
       <option>Aposentado</option>
     </select>
     <br>
+     <label> Data de Demissão/Saída </label>
+      <input type="date" class="form-control" name="demissdata" placeholder="Digite a data de saída do servidor" required autocomplete="off">
+    <br>
+      <label> Publicação da Saída  </label>
+      <input type="text" class="form-control" name="demisspubli" placeholder="Insira a publicação de saída do servidor" required autocomplete="off">
+      <br>
     <label for="exampleFormControlSelect1">Organização Militar</label>
       <select class="form-control" id="exampleFormControlSelect1" name="om" required autocomplete="off">
       <option>-------------------</option>
@@ -154,17 +160,17 @@ if (!isset($_SESSION['usuario'])) {
         <option>20 horas</option>
       </select>
       <br>
+    </div>
+    <div class="col-sm">
+      <div style="text-align: left;"; style="margin-top: 40px">
+      <h4>...</h4>
+      </div>
       <label>Código da Vaga</label>
       <input type="number" class="form-control" name="codigovaga" placeholder="Digite o código de vaga do servidor" required autocomplete="off">
       <br>
       <label> PIS/PASEP </label>
       <input type="number" class="form-control" name="pispasep" placeholder="Digite o PIS/PASEP do servidor" required autocomplete="off">
       <br>
-    </div>
-    <div class="col-sm">
-      <div style="text-align: left;"; style="margin-top: 40px">
-      <h4>...</h4>
-      </div>
       <label>Data da Posse</label>
       <input type="date" class="form-control" name="dataposse" placeholder="Digite a data da posse do servidor" required autocomplete="off">
       <br>
@@ -173,7 +179,6 @@ if (!isset($_SESSION['usuario'])) {
       <br>
       <!-- <label> Tempo de Serviço no DCTA </label> -->
       <input type="hidden" class="form-control" name="tempodcta" placeholder="Insira o tempo de serviço do servidor no DCTA" required autocomplete="off">
-      <br>
       <label> Tempo de Serviço/Contribuição Averbado </label>
       <input type="number" class="form-control" name="tempoexterno" placeholder="Insira o tempo de serviço externo averbado" required autocomplete="off">
       <br>
@@ -204,7 +209,7 @@ if (!isset($_SESSION['usuario'])) {
       <input type="date" class="form-control" name="datatitulacao" placeholder="Insira a data de concessão da titulação" required autocomplete="off">
     </div>
   </div>
-  
+  <br>
   <div style="text-align: right; margin-bottom: 100px" >
   <a href="menu.php" role="button" class="btn  btn-sm btn-primary">Voltar</a>
   <button type="submit" id="botao" class="btn  btn-sm">Cadastrar</button>
