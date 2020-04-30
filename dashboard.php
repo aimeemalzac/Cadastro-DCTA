@@ -49,7 +49,7 @@
   <body>
 
 
-    <?php
+<?php
 
 session_start();
 
@@ -78,7 +78,7 @@ $nivel_usuario = $array['nivel_usuario'];
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">DCTA</a>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#">Sign out</a>
+      <a class="nav-link" href="menu.php">Voltar</a>
     </li>
   </ul>
 </nav>
@@ -89,7 +89,7 @@ $nivel_usuario = $array['nivel_usuario'];
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="#">
+            <a class="nav-link active" href="?pagina=relatorio">
               <span data-feather="home"></span>
               Relatórios <span class="sr-only">(current)</span>
             </a>
@@ -132,6 +132,13 @@ $nivel_usuario = $array['nivel_usuario'];
       if(isset($_GET['pagina'])){
 
       	switch ($_GET['pagina']) {
+          case 'relatorio':
+            include 'painel.php';
+            include 'painel2.php';
+            break;
+
+        
+
       		case 'servidoresOm':
       			echo '<h2>Servidores por Organização Militar</h2>';
       			include 'dash/graficos/terceiroGrafico.php';
@@ -149,6 +156,7 @@ $nivel_usuario = $array['nivel_usuario'];
       		
       		default:
       			echo "NENHUMA OPÇÃO ESCOLHIDA";
+            include 'painel.php';
       			break;
       	}
 
@@ -157,9 +165,6 @@ $nivel_usuario = $array['nivel_usuario'];
 
 
       ?>
-
-    
-
      
       
     </main>
