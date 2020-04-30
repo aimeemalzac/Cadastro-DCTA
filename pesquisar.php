@@ -81,6 +81,8 @@ echo $nivel_usuario = $array['nivel_usuario'];
           $endereco = $array ['endereco'];
           $email = $array ['email'];
           $situacaofuncional = $array ['situacaofuncional'];
+          $demissdata = $array['demissdata'];
+          $demisspubli = $array['demisspubli'];
           $om = $array ['om'];
           $carreira = $array ['carreira'];
           $cargo = $array ['cargo'];
@@ -114,37 +116,11 @@ echo $nivel_usuario = $array['nivel_usuario'];
       while ($array = mysqli_fetch_array($b)) {
 
         $id = $array ['id'];
-        $nome = $array ['nome']; 
-        $siape = $array ['siape'];
-        $sexo = $array ['sexo'];
-        $datanascimento = $array ['datanascimento'];
-        //$idade = $array ['idade'];
+  
         $cpf = $array ['cpf'];
-        $rg = $array ['rg'];
-        $estadocivil = $array ['estadocivil'];
-        $pne = $array ['pne'];
-        $endereco = $array ['endereco'];
-        $email = $array ['email'];
-        $situacaofuncional = $array ['situacaofuncional'];
-        $om = $array ['om'];
-        $carreira = $array ['carreira'];
-        $cargo = $array ['cargo'];
-        $classe = $array ['classe'];
-        $padrao = $array ['padrao'];
-        $nivel = $array ['nivel'];
-        $jornada = $array ['jornada'];
-        $codigovaga = $array ['codigovaga'];
-        $pispasep = $array ['pispasep'];
-        $dataposse = $array ['dataposse'];
         $dataexercicio = $array ['dataexercicio'];
         $tempodcta = $array ['tempodcta'];
-        $tempoexterno = $array ['tempoexterno'];
         $tempoafastado = $array ['tempoafastado'];
-        $prevaposentadoria = $array ['prevaposentadoria'];
-        $progressao = $array ['progressao'];
-        $titulacao = $array ['titulacao'];
-        $portariatitulacao = $array ['portariatitulacao'];
-        $datatitulacao = $array ['datatitulacao'];
         ?>
 
 
@@ -231,6 +207,15 @@ echo $nivel_usuario = $array['nivel_usuario'];
     </select>
     <br>
 
+     <br>
+      <label> Data de Demissão/Saída </label>
+      <input type="date" class="form-control" name="demissdata" value="<?php echo $demissdata ?>">
+      <br>
+
+      <label> Publicação da Demissão/Saída </label>
+      <input type="text" class="form-control" name="demisspubli" value="<?php echo $demisspubli ?>">
+      <br>
+
     <label for="exampleFormControlSelect1">Organização Militar</label>
       <select class="form-control" id="exampleFormControlSelect1" name="om" value="<?php echo $om ?>">
       <option <?php echo $om=='DCTA' ? 'selected="selected"' : ''?>>DCTA</option>
@@ -316,15 +301,18 @@ echo $nivel_usuario = $array['nivel_usuario'];
       <input type="number" class="form-control" name="codigovaga" value="<?php echo $codigovaga ?>">
       <br>
 
-      <label> PIS/PASEP </label>
-      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
-      <br>
+    
 
     </div>
     <div class="col-sm">
       <div style="text-align: left;"; style="margin-top: 40px">
       <h4>...</h4>
       </div>
+      <br>
+      <label> PIS/PASEP </label>
+      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
+      <br>
+
       <br>
       <label>Data da Posse</label>
       <input type="date" class="form-control" name="dataposse" value="<?php echo $dataposse ?>">
