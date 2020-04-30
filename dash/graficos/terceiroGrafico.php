@@ -14,7 +14,7 @@
 
           include 'conexao.php';
 
-          $sql = "SELECT `om`, COUNT(*) AS total FROM dados GROUP BY `om`";
+          $sql = "SELECT `om` , COUNT(*) AS total FROM dados WHERE `situacaofuncional` = 'Ativo' GROUP BY `om`";
 
           $buscar = mysqli_query($conexao, $sql);
 
