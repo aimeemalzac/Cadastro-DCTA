@@ -56,7 +56,7 @@ if (!isset($_SESSION['usuario'])) {
       <input type="number" class="form-control" name="cpf" placeholder="Digite o CPF do servidor" required autocomplete="off">
       <br>
       <label> RG </label>
-      <input type="number" class="form-control" name="rg" placeholder="Digite o RG do servidor" required autocomplete="off">
+      <input type="text" class="form-control" name="rg" placeholder="Digite o RG do servidor" required autocomplete="off">
       <br>
       <label for="exampleFormControlSelect1">Estado Civil</label>
       <select class="form-control" id="exampleFormControlSelect1" name="estadocivil" required autocomplete="off">
@@ -80,6 +80,8 @@ if (!isset($_SESSION['usuario'])) {
       <label> Email </label>
       <input type="Email" class="form-control" name="email" placeholder="Insira o email do servidor" required autocomplete="off">
       <br>
+      <label> PIS/PASEP </label>
+      <input type="number" class="form-control" name="pispasep" placeholder="Digite o PIS/PASEP do servidor" required autocomplete="off">
       <br>
     </div>
 
@@ -160,17 +162,14 @@ if (!isset($_SESSION['usuario'])) {
         <option>20 horas</option>
       </select>
       <br>
+      <label>Código da Vaga</label>
+      <input type="number" class="form-control" name="codigovaga" placeholder="Digite o código de vaga do servidor" required autocomplete="off">
+      <br>
     </div>
     <div class="col-sm">
       <div style="text-align: left;"; style="margin-top: 40px">
       <h4>...</h4>
       </div>
-      <label>Código da Vaga</label>
-      <input type="number" class="form-control" name="codigovaga" placeholder="Digite o código de vaga do servidor" required autocomplete="off">
-      <br>
-      <label> PIS/PASEP </label>
-      <input type="number" class="form-control" name="pispasep" placeholder="Digite o PIS/PASEP do servidor" required autocomplete="off">
-      <br>
       <label>Data da Posse</label>
       <input type="date" class="form-control" name="dataposse" placeholder="Digite a data da posse do servidor" required autocomplete="off">
       <br>
@@ -207,6 +206,9 @@ if (!isset($_SESSION['usuario'])) {
       <br>
       <label> Data da Concessão da Titulação </label>
       <input type="date" class="form-control" name="datatitulacao" placeholder="Insira a data de concessão da titulação" required autocomplete="off">
+       <br>
+      <label> Abono de Permanencia </label>
+      <input type="text" class="form-control" name="abono" placeholder="Informe se o servidor já recebe abono" required autocomplete="off">
     </div>
   </div>
   <br>
