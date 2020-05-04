@@ -100,6 +100,7 @@ $nivel_usuario = $array['nivel_usuario'];
 				$titulacao = $array ['titulacao'];
 				$portariatitulacao = $array ['portariatitulacao'];
 				$datatitulacao = $array ['datatitulacao'];
+				$abono = $array['abono'];
 				?>
 			
 			<?php {
@@ -141,6 +142,7 @@ $nivel_usuario = $array['nivel_usuario'];
 				$titulacao = $array ['titulacao'];
 				$portariatitulacao = $array ['portariatitulacao'];
 				$datatitulacao = $array ['datatitulacao'];
+				$abono = $array['abono'];
 				?>
 
 
