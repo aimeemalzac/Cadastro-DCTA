@@ -46,10 +46,11 @@ $progressao = $_POST['progressao'];
 $titulacao = $_POST['titulacao'];
 $portariatitulacao = $_POST['portariatitulacao'];
 $datatitulacao = $_POST['datatitulacao'];
+$abono = $_POST['abono'];
 
 
 
-$sql = "UPDATE `dados` SET  `nome` = '$nome',`siape`= $siape, `sexo`='$sexo', `datanascimento`='$datanascimento', `cpf`=$cpf, `rg`=$rg, `estadocivil`='$estadocivil', `pne`='$pne', `endereco`='$endereco', `email`='$email', `situacaofuncional`='$situacaofuncional', `demissdata`='$demissdata', `demisspubli`='$demisspubli', `om`='$om', `carreira`='$carreira', `cargo`='$cargo', `classe`='$classe', `padrao`='$padrao', `nivel`='$nivel', `jornada`='$jornada', `codigovaga`=$codigovaga, `pispasep`=$pispasep, `dataposse`='$dataposse', `dataexercicio`='$dataexercicio', `tempoexterno`=$tempoexterno, `tempoafastado`=$tempoafastado, `prevaposentadoria`=$prevaposentadoria, `progressao`='$progressao', `titulacao`='$titulacao', `portariatitulacao`='$portariatitulacao', `datatitulacao`='$datatitulacao' WHERE id = $id ";
+$sql = "UPDATE `dados` SET  `nome` = '$nome',`siape`= $siape, `sexo`='$sexo', `datanascimento`='$datanascimento', `cpf`=$cpf, `rg`=$rg, `estadocivil`='$estadocivil', `pne`='$pne', `endereco`='$endereco', `email`='$email', `situacaofuncional`='$situacaofuncional', `demissdata`='$demissdata', `demisspubli`='$demisspubli', `om`='$om', `carreira`='$carreira', `cargo`='$cargo', `classe`='$classe', `padrao`='$padrao', `nivel`='$nivel', `jornada`='$jornada', `codigovaga`=$codigovaga, `pispasep`=$pispasep, `dataposse`='$dataposse', `dataexercicio`='$dataexercicio', `tempoexterno`=$tempoexterno, `tempoafastado`=$tempoafastado, `prevaposentadoria`=$prevaposentadoria, `progressao`='$progressao', `titulacao`='$titulacao', `portariatitulacao`='$portariatitulacao', `datatitulacao`='$datatitulacao', `abono`='$abono' WHERE id = $id ";
 
 
 $atualizar = mysqli_query($conexao, $sql);
