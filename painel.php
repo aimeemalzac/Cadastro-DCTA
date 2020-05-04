@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
- 				 <div class="card-header">Total de servidores Ativos no DCTA</div>
+ 				 <div class="card-header">Servidores Ativos no DCTA</div>
 				  <div class="card-body">
  				   <h5 class="card-title" style="text-align: center; font-size: 50px"> 
  				   <?php
@@ -32,7 +32,7 @@
 
 			<div class="col-md-4">
 				<div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
- 				 <div class="card-header">Total de servidores Aposentados</div>
+ 				 <div class="card-header">Servidores Aposentados</div>
 				  <div class="card-body">
  				   <h5 class="card-title" style="text-align: center; font-size: 50px">
  				   	<?php
@@ -54,14 +54,14 @@
 
 			<div class="col-md-4">
 				<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-				  <div class="card-header">Total de Servidores Cedidos</div>
+				  <div class="card-header">Com Abono de Permanência</div>
 				 	 <div class="card-body">
 				    	<h5 class="card-title" style="text-align: center; font-size: 50px">
 				    	 <?php
 
 				    	include 'conexao.php';
 
-				    	$sql = "SELECT `situacaofuncional`, COUNT(*) AS total FROM dados WHERE `situacaofuncional` != 'Aposentado' AND `situacaofuncional` != 'Ativo' GROUP BY `situacaofuncional`";
+				    	$sql = "SELECT `abono`, COUNT(*) AS total FROM dados WHERE `abono` = 'SIM' AND `situacaofuncional` = 'Ativo' GROUP BY `abono`";
 				    	 $consulta = mysqli_query($conexao, $sql);
 				    	 $dados = mysqli_fetch_array($consulta);
 				    	 echo $dados ['total'];
