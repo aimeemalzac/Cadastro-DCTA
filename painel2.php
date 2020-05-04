@@ -31,7 +31,7 @@
         ]);
 
         var options = {
-          title: 'Projeções de Aposentadoria',
+          title: '',
           //curveType: 'function',
           legend: { position: 'none' }
         };
@@ -41,16 +41,59 @@
         chart.draw(data, options);
       }
     </script>
+
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Servidor', 'Sexo'],
+
+         <?php
+
+          include 'conexao.php';
+
+          $sql ="SELECT `sexo`, COUNT(*) AS total FROM dados  WHERE `situacaofuncional` = 'Ativo' GROUP BY `sexo`";
+
+          $buscar = mysqli_query($conexao, $sql);
+
+          while ($valor = mysqli_fetch_array($buscar)){
+            
+            $sexo =  $valor ['sexo'];
+            $total = $valor ['total'];
+
+          ?>
+
+          ['<?php echo $sexo ?>',<?php echo $total ?>],
+
+
+         <?php } ?> 
+        ]);
+
+        var options = {
+          title: ''
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
   </head>
+
   <body>
-    <div class = "container-fluid" style="margin-top: 50px">
+    <div class = "container-fluid" style="margin-top: 40px">
       <div class="row">
-        <div class="col-md-8">
-          <div id="curve_chart"></div>
+       <div class="col-md-4">
+       	 <h4>Servidores por Gênero</h4>
+    		<div id="piechart" ></div>
+      </div>
+      <div class="col-md-8">
+        	<h4>Projeções de Aposentadoria</h4>
+            <div id="curve_chart"></div>
       </div>
     </div>
-  </div>
-
-    <div id="curve_chart" ></div>
   </body>
 </html>
