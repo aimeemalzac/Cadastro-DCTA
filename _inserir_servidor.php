@@ -35,10 +35,10 @@ $progressao = $_POST['progressao'];
 $titulacao = $_POST['titulacao'];
 $portariatitulacao = $_POST['portariatitulacao'];
 $datatitulacao = $_POST['datatitulacao'];
+$abono = $_POST['abono'];
 
 
-
-$sql = "INSERT INTO `dados`(`nome`, `siape`, `sexo`, `datanascimento`, `cpf`, `rg`, `estadocivil`, `pne`, `endereco`, `email`, `situacaofuncional`, `demissdata`, `demisspubli`, `om`, `carreira`, `cargo`, `classe`, `padrao`, `nivel`, `jornada`, `codigovaga`, `pispasep`, `dataposse`, `dataexercicio`,  `tempoexterno`, `tempoafastado`, `prevaposentadoria`, `progressao`, `titulacao`, `portariatitulacao`, `datatitulacao`) VALUES ('$nome', $siape, '$sexo', '$datanascimento', $cpf, $rg, '$estadocivil', '$pne', '$endereco', '$email', '$situacaofuncional', '$demissdata', '$demisspubli', '$om', '$carreira', '$cargo', '$classe', '$padrao', '$nivel', '$jornada', $codigovaga, $pispasep, '$dataposse', '$dataexercicio', $tempoexterno, $tempoafastado, $prevaposentadoria, '$progressao', '$titulacao', '$portariatitulacao', '$datatitulacao')";
+$sql = "INSERT INTO `dados`(`nome`, `siape`, `sexo`, `datanascimento`, `cpf`, `rg`, `estadocivil`, `pne`, `endereco`, `email`, `situacaofuncional`, `demissdata`, `demisspubli`, `om`, `carreira`, `cargo`, `classe`, `padrao`, `nivel`, `jornada`, `codigovaga`, `pispasep`, `dataposse`, `dataexercicio`,  `tempoexterno`, `tempoafastado`, `prevaposentadoria`, `progressao`, `titulacao`, `portariatitulacao`, `datatitulacao`, `abono`) VALUES ('$nome', $siape, '$sexo', '$datanascimento', $cpf, $rg, '$estadocivil', '$pne', '$endereco', '$email', '$situacaofuncional', '$demissdata', '$demisspubli', '$om', '$carreira', '$cargo', '$classe', '$padrao', '$nivel', '$jornada', $codigovaga, $pispasep, '$dataposse', '$dataexercicio', $tempoexterno, $tempoafastado, $prevaposentadoria, '$progressao', '$titulacao', '$portariatitulacao', '$datatitulacao', '$abono')";
 
 $inserir = mysqli_query($conexao, $sql);
 
