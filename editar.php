@@ -100,6 +100,7 @@ $id= $_GET['id'];
 					$titulacao = $array ['titulacao'];
 					$portariatitulacao = $array ['portariatitulacao'];
 					$datatitulacao = $array ['datatitulacao'];
+          $abono = $array['abono'];
 						
 
 				?>
@@ -123,40 +124,31 @@ $id= $_GET['id'];
     <div style="text-align: center;" style="margin-top: 0px";>
     <h4>Dados Pessoais</h4>
     </div>
-
      <label> Nome </label>
       <input type="text" class="form-control" name="nome" value="<?php echo $nome ?>">
       <input type="number" class="form-control" name="id" value="<?php echo $id ?>" style="display: none">
     <br>
-
     <label> Siape </label>
       <input type="number" class="form-control" name="siape" value="<?php echo $siape ?>">
       <br>
-
      <label for="exampleFormControlSelect1">Sexo</label>
        <select class="form-control" id="exampleFormControlSelect1" name="sexo" value="<?php echo $sexo ?>">
         <option <?php echo $sexo=='Feminino' ? 'selected="selected"' : ''?>>Feminino</option>
         <option <?php echo $sexo=='Masculino' ? 'selected="selected"' : ''?>>Masculino</option>
         </select>
-
       <br>
       <label> Data de Nascimento </label>
       <input type="date" class="form-control" name="datanascimento" value="<?php echo $datanascimento ?>">
       <br>
-
       <label> Idade </label>
       <input disabled="disabled" type="number" class="form-control" name="idade" value="<?php echo $idade ?>">
       <br>
-
       <label> CPF </label>
       <input type="number" class="form-control" name="cpf" value="<?php echo $cpf ?>">
       <br>
-      <br>
-
       <label> RG </label>
-      <input type="number" class="form-control" name="rg" value="<?php echo $rg ?>">
+      <input type="text" class="form-control" name="rg" value="<?php echo $rg ?>">
       <br>
-
       <label for="exampleFormControlSelect1">Estado Civil</label>
       <select class="form-control" id="exampleFormControlSelect1" name="estadocivil" value="<?php echo $estadocivil ?>">
       <option <?php echo $estadocivil=='solteiro(a)' ? 'selected="selected"' : ''?>>solteiro(a)</option>
@@ -167,26 +159,25 @@ $id= $_GET['id'];
       <option <?php echo $estadocivil=='Outro' ? 'selected="selected"' : ''?>>Outro</option>
       </select>
       <br>
-
       <label for="exampleFormControlSelect1">Portador de Necessidades Especiais</label>
       <select class="form-control" id="exampleFormControlSelect1" name="pne" value="<?php echo $pne ?>">
       <option <?php echo $pne=='SIM' ? 'selected="selected"' : ''?>>SIM</option>
       <option <?php echo $pne=='NÃO' ? 'selected="selected"' : ''?>>NÃO</option>
       </select>
       <br>
-
       <label> Endereço </label>
       <input type="text" class="form-control" name="endereco" value="<?php echo $endereco ?>">
       <br>
-
       <label> Email </label>
       <input type="Email" class="form-control" name="email" value="<?php echo $email ?>">
       <br>
+      <label> PIS/PASEP </label>
+      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
       <br>
     </div>
 
     <div class="col-sm">
-      <div style="text-align: right;"; style="margin-top: 40px">
+      <div style="text-align: left;"; style="margin-top: 40px">
       <h4>Dados Profissionais</h4>
       </div>
       <br>
@@ -203,16 +194,12 @@ $id= $_GET['id'];
       <option <?php echo $situacaofuncional=='DAS' ? 'selected="selected"' : ''?>>DAS</option>
     </select>
     <br>
-
-      <br>
       <label> Data de Demissão/Saída </label>
       <input type="date" class="form-control" name="demissdata" value="<?php echo $demissdata ?>">
       <br>
-
       <label> Publicação da Demissão/Saída </label>
       <input type="text" class="form-control" name="demisspubli" value="<?php echo $demisspubli ?>">
       <br>
-
     <label for="exampleFormControlSelect1">Organização Militar</label>
       <select class="form-control" id="exampleFormControlSelect1" name="om" value="<?php echo $om ?>">
       <option <?php echo $om=='DCTA' ? 'selected="selected"' : ''?>>DCTA</option>
@@ -230,7 +217,6 @@ $id= $_GET['id'];
       <option <?php echo $om=='ICEA' ? 'selected="selected"' : ''?>>ICEA</option>
       </select>
       <br>
-
       <label for="exampleFormControlSelect1">Carreira</label>
       <select class="form-control" id="exampleFormControlSelect1" name="carreira" value="<?php echo $carreira ?>">
       <option <?php echo $carreira=='C&T' ? 'selected="selected"' : ''?>>C&T</option>
@@ -245,10 +231,8 @@ $id= $_GET['id'];
       <option <?php echo $carreira=='MPOG' ? 'selected="selected"' : ''?>>MPOG</option>
       <option <?php echo $carreira=='PCCTAE' ? 'selected="selected"' : ''?>>PCCTAE</option>
       <option <?php echo $carreira=='PGPE' ? 'selected="selected"' : ''?>>PGPE</option>
-
       </select>
       <br>
-
       <label for="exampleFormControlSelect1">Cargo</label>
        <select class="form-control" id="exampleFormControlSelect1" name="cargo" value="<?php echo $cargo ?>">
         <option <?php echo $cargo=='Auxiliar em C&T' ? 'selected="selected"' : ''?>>Auxiliar em C&T</option>
@@ -265,18 +249,14 @@ $id= $_GET['id'];
         <option <?php echo $cargo=='Agente Adm' ? 'selected="selected"' : ''?>>Agente Adm</option>
         <option <?php echo $cargo=='Assistente Técnico' ? 'selected="selected"' : ''?>>Assistente Técnico</option>
         <option <?php echo $cargo=='Administrador' ? 'selected="selected"' : 'Administrador'?>></option>
-
         </select>
       <br>
-
       <label> Classe </label>
       <input type="text" class="form-control" name="classe" value="<?php echo $classe ?>">
       <br>
-
       <label> Padrão </label>
       <input type="text" class="form-control" name="padrao" value="<?php echo $padrao ?>">
       <br>
-
       <label for="exampleFormControlSelect1">Nível</label>
        <select class="form-control" id="exampleFormControlSelect1" name="nivel" value="<?php echo $nivel ?>">
         <option <?php echo $nivel=='NA' ? 'selected="selected"' : ''?>>NA</option>
@@ -284,7 +264,6 @@ $id= $_GET['id'];
         <option <?php echo $nivel=='NS' ? 'selected="selected"' : ''?>>NS</option>
        </select>
       <br>
-
       <label for="exampleFormControlSelect1">Jornada</label>
        <select class="form-control" id="exampleFormControlSelect1" name="jornada" value="<?php echo $jornada ?>">
         <option <?php echo $jornada=='40 horas' ? 'selected="selected"' : ''?>>40 horas</option>
@@ -293,51 +272,36 @@ $id= $_GET['id'];
         <option <?php echo $jornada=='Dedicação Exclusiva' ? 'selected="selected"' : ''?>>Dedicação Exclusiva</option>
       </select>
       <br>
-
       <label>Código da Vaga</label>
       <input type="number" class="form-control" name="codigovaga" value="<?php echo $codigovaga ?>">
       <br>
-
     </div>
     <div class="col-sm">
-      <div style="text-align: left;"; style="margin-top: 0px">
+      <div style="text-align: left;"; style="margin-top: 40px">
       <h4> ...  </h4>
       </div>
-      <br>
-      <label> PIS/PASEP </label>
-      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
-      <br>
-
-
       <br>
       <label>Data da Posse</label>
       <input type="date" class="form-control" name="dataposse" value="<?php echo $dataposse ?>">
       <br>
-
       <label>Data do Exercício</label>
       <input type="date" class="form-control" name="dataexercicio" value="<?php echo $dataexercicio ?>">
       <br>
-
       <label> Tempo de Serviço no DCTA em anos </label>
       <input disabled="disabled" type="number" class="form-control" name="tempodcta" <?php $tempodcta1 = number_format($tempodcta, 0, '.','') ?>  value="<?php echo $tempodcta1 ?>">
       <br>
-
       <label> Tempo de Serviço/Contribuição Averbado </label>
       <input type="number" class="form-control" name="tempoexterno" value="<?php echo $tempoexterno ?>">
       <br>
-
       <label> Tempo Afastado </label>
       <input type="number" class="form-control" name="tempoafastado" value="<?php echo $tempoafastado ?>">
       <br>
-
       <label> Previsão de Aposentadoria </label>
       <input type="year" class="form-control" name="prevaposentadoria" value="<?php echo $prevaposentadoria ?>">
       <br>
-
       <label> Última Progressão </label>
       <input type="date" class="form-control" name="progressao" value="<?php echo $progressao ?>">
       <br>
-
       <label for="exampleFormControlSelect1">Titulação</label>
       <select class="form-control" id="exampleFormControlSelect1" name="titulacao" value="<?php echo $titulacao ?>">
       <option <?php echo $titulacao=='GQ-I' ? 'selected="selected"' : ''?>>GQ-I</option>
@@ -349,13 +313,15 @@ $id= $_GET['id'];
       <option <?php echo $titulacao==' ' ? 'selected="selected"' : ''?>> </option>
       </select>
       <br>
-
       <label> Portaria de Concessão da Titulação </label>
       <input type="text" class="form-control" name="portariatitulacao" value="<?php echo $portariatitulacao ?>">
       <br>
-
       <label> Data da Concessão da Titulação </label>
       <input type="date" class="form-control" name="datatitulacao" value="<?php echo $datatitulacao ?>">
+      <br>
+      <label> Abono de Permanência </label>
+      <input type="text" class="form-control" name="abono" value="<?php echo $abono ?>">
+      <br>
     </div>
   	</div>
 
