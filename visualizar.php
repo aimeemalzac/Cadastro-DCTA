@@ -88,6 +88,7 @@ $id= $_GET['id'];
 			$titulacao = $array ['titulacao'];
 			$portariatitulacao = $array ['portariatitulacao'];
 			$datatitulacao = $array ['datatitulacao'];
+      $abono = $array['abono'];
 				
 
     ?>
@@ -168,6 +169,11 @@ $id= $_GET['id'];
       <label> Email </label>
       <input type="Email" class="form-control" name="email" value="<?php echo $email ?>">
       <br>
+
+      <label> PIS/PASEP </label>
+      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
+      <br>
+
       <br>
     </div>
 
@@ -183,7 +189,6 @@ $id= $_GET['id'];
     </select>
     <br>
 
-      <br>
       <label> Data de Demissão/Saída </label>
       <input type="date" class="form-control" name="demissdata" value="<?php echo $demissdata ?>">
       <br>
@@ -263,12 +268,6 @@ $id= $_GET['id'];
       <h4>...</h4>
       </div>
       <br>
-
-      <label> PIS/PASEP </label>
-      <input type="number" class="form-control" name="pispasep" value="<?php echo $pispasep ?>">
-      <br>
-
-      <br>
       <label>Data da Posse</label>
       <input type="date" class="form-control" name="dataposse" value="<?php echo $dataposse ?>">
       <br>
@@ -314,6 +313,13 @@ $id= $_GET['id'];
 
       <label> Data da Concessão da Titulação </label>
       <input type="date" class="form-control" name="datatitulacao" value="<?php echo $datatitulacao ?>">
+      <br>
+
+      <label> Abono de Permanencia </label>
+      <input type="text" class="form-control" name="abono" value="<?php echo $abono ?>">
+      <br>
+
+
     </div>
     </div>
 
