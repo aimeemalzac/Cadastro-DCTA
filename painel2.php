@@ -81,6 +81,15 @@
         chart.draw(data, options);
       }
     </script>
+      <style type="text/css">
+  .sombra{
+    
+    -webkit-box-shadow: 10px 10px 5px 2px rgba(189,178,189,1);
+    -moz-box-shadow: 10px 10px 5px 2px rgba(189,178,189,1);
+    box-shadow: 5px 5px 2px 1px rgba(189,178,189,1);
+  }
+  </style>
+
   </head>
 
   <body>
@@ -88,11 +97,11 @@
       <div class="row">
        <div class="col-md-4">
        	 <h4>Servidores por Gênero</h4>
-    		<div id="piechart" ></div>
+    		<div id="piechart" class="sombra" ></div>
       </div>
       <div class="col-md-8">
         	<h4>Projeções de Aposentadoria</h4>
-            <div id="curve_chart"></div>
+            <div id="curve_chart" class="sombra" ></div>
       </div>
     </div>
   </body>
