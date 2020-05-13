@@ -8,14 +8,14 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
 
-        ['Year', 'Pesquisador', 'Tecnologista', 'Tecnico'],
+        ['Year', 'Pesquisador', 'Tecnologista', 'Técnico', 'Auxiliar Técnico'],
           
 
         <?php
  
         include 'conexao.php';
 
-        $sql = "SELECT `prevaposentadoria`, sum(case when `cargo` = 'TECNICO' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end) AS 'Tecnico', sum(case when `cargo` = 'TECNOLOGISTA' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end ) AS 'Tecnologista', sum(case when `cargo` = 'PESQUISADOR' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end) AS 'Pesquisador' FROM dados where `prevaposentadoria` < 2025 AND `prevaposentadoria` > 2019 GROUP BY `prevaposentadoria`";
+        $sql = "SELECT `prevaposentadoria`, sum(case when `cargo` = 'TECNICO' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end) AS 'Tecnico', sum(case when `cargo` = 'AUXILIAR TECNICO' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end) AS 'Auxiliartecnico', sum(case when `cargo` = 'TECNOLOGISTA' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end ) AS 'Tecnologista', sum(case when `cargo` = 'PESQUISADOR' AND `prevaposentadoria` > 2019 AND `prevaposentadoria` < 2025 then 1 else 0 end) AS 'Pesquisador' FROM dados where `prevaposentadoria` < 2025 AND `prevaposentadoria` > 2019 GROUP BY `prevaposentadoria`";
 
 
        $buscar = mysqli_query($conexao, $sql);
@@ -24,12 +24,13 @@
           $prevaposentadoria =  $valor ['prevaposentadoria'];
           $Tecnico = $valor ['Tecnico'];
           $Tecnologista = $valor ['Tecnologista'];
-          $Pesquisador = $valor ['Pesquisador']
+          $Pesquisador = $valor ['Pesquisador'];
+          $Auxiliartecnico = $valor ['Auxiliartecnico'];
   
 
          ?>
 
-          ['<?php echo $prevaposentadoria ?>',<?php echo $Pesquisador ?>, <?php echo $Tecnologista ?>, <?php echo $Tecnico ?>],
+          ['<?php echo $prevaposentadoria ?>',<?php echo $Pesquisador ?>, <?php echo $Tecnologista ?>, <?php echo $Tecnico ?>, <?php echo $Auxiliartecnico ?>],
 
 
         <?php } ?>
