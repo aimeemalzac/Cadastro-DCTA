@@ -184,6 +184,7 @@ $id= $_GET['id'];
       <label for="exampleFormControlSelect1">Situação Funcional</label>
       <select class="form-control" id="exampleFormControlSelect1" name="situacaofuncional" value="<?php echo $situacaofuncional ?>">
       <option <?php echo $situacaofuncional=='Ativo' ? 'selected="selected"' : ''?>>Ativo</option>
+      <option <?php echo $situacaofuncional=='Aposentado' ? 'selected="selected"' : ''?>>Aposentado</option>
       <option <?php echo $situacaofuncional=='Cedido' ? 'selected="selected"' : ''?>>Cedido</option>
       <option <?php echo $situacaofuncional=='Contrato de Trabalho Temporário' ? 'selected="selected"' : ''?>>Contrato de Trabalho Temporário</option>
       <option <?php echo $situacaofuncional=='AGU' ? 'selected="selected"' : ''?>>AGU</option>
