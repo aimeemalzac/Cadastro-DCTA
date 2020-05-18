@@ -38,6 +38,8 @@ $id= $_GET['id'];
  	<meta charset="utf-8">
  	<title></title>
  	<link rel="stylesheet" href ="css/bootstrap.css">
+  
+
 
  	<style type="text/css">
  		
@@ -52,7 +54,7 @@ $id= $_GET['id'];
  		}
 
  	</style>
-
+</head>
  <body> 
  <div class="container" style="margin-top: 40px;">
   <div class="row">
