@@ -109,7 +109,7 @@ $nivel_usuario = $array['nivel_usuario'];
 				<div class="card-body">
 					<h5 class="card-title">Relatórios</h5>
 					<p class="card-text">Relatórios Gerenciais</p>
-					<a href="http://localhost/curso/dashboard.php?pagina=relatorio" class="btn btn-primary">Visualizar Relatórios</a>
+					<a href="dashboard.php?pagina=relatorio" class="btn btn-primary">Visualizar Relatórios</a>
 
 				</div>
 			</div>
