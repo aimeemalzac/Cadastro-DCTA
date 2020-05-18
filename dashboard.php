@@ -95,6 +95,30 @@ $nivel_usuario = $array['nivel_usuario'];
               Servidores Aposentáveis - Área Meio
             </a>
           </li>
+           <li class="nav-item">
+            <a class="nav-link" href="?pagina=servidoresAposentaveisFim5atras">
+              <span data-feather="users"></span>
+              Servidores Aposentados - Área Fim - Últimos 5 anos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?pagina=servidoresAposentaveisMeio5atras">
+              <span data-feather="users"></span>
+              Servidores Aposentáveis - Área Meio - Últimos 5 anos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?pagina=servidoresnivel5atras">
+              <span data-feather="users"></span>
+              Evasão na Carreira de C&T por nível nos últimos 5 anos
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?pagina=servidoresnivel5frente">
+              <span data-feather="users"></span>
+              Evasão na Carreira de C&T por nível nos próximos 5 anos
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -121,7 +145,6 @@ $nivel_usuario = $array['nivel_usuario'];
             break;
 
         
-
       		case 'servidoresOm':
       			echo '<h2>Servidores por Organização Militar</h2>';
       			include 'dash/graficos/terceiroGrafico.php';
@@ -133,18 +156,39 @@ $nivel_usuario = $array['nivel_usuario'];
       			break;
 
       		case 'servidoresAposentaveis':
-      			echo '<h2>Aposentáveis por ano</h2>';
+      			echo '<h2>Totalidade de aposentáveis por ano</h2>';
             include 'dash/graficos/primeiroGrafico.php';
       			break;
 
           case 'servidoresAposentaveisFim':
-            echo '<h2>Aposentáveis por ano</h2>';
+         
             include 'dash/graficos/quartoGrafico.php';
             break;
 
           case 'servidoresAposentaveisMeio':
-            echo '<h2>Aposentáveis por ano</h2>';
+           
             include 'dash/graficos/quintoGrafico.php';
+            break;
+
+          case 'servidoresAposentaveisFim5atras':
+            
+            include 'dash/graficos/setimoGrafico.php';
+            break;
+
+
+          case 'servidoresAposentaveisMeio5atras':
+           
+            include 'dash/graficos/sextoGrafico.php';
+            break;
+
+          case 'servidoresnivel5atras':
+            echo '<h2>Evasão na Carreira de C&T por nível nos últimos 5 anos</h2>';
+            include 'dash/graficos/oitavoGrafico.php';
+            break;
+
+          case 'servidoresnivel5frente':
+            echo '<h2>Evasão na Carreira de C&T por nível nos próximos 5 anos</h2>';
+            include 'dash/graficos/nonoGrafico.php';
             break;
       		
       		default:
